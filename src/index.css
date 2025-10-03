@@ -2,12 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global helpers */
-:root { --radius: 16px; }
-.glass { @apply bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl; }
-.btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold transition-all; }
-.btn-primary { @apply btn bg-brand-500 hover:bg-brand-600 text-white; }
-.btn-ghost { @apply btn bg-white/5 hover:bg-white/10 text-white; }
-.input { @apply w-full rounded-xl bg-white/10 border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-500 text-white placeholder:opacity-60; }
-.badge { @apply inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs bg-white/10 border border-white/10; }
-.card { @apply glass p-5; }
+/* sensible defaults */
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply bg-slate-50 text-slate-900 antialiased font-display; }
+}
+
+/* reusable utilities */
+@layer components {
+  .container-prose { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .card { @apply bg-white shadow-soft rounded-2xl border border-slate-100; }
+  .card-padding { @apply p-5 sm:p-6; }
+  .btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition; }
+  .btn-primary { @apply btn bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700; }
+  .btn-ghost { @apply btn bg-transparent text-slate-700 hover:bg-slate-100; }
+  .input { @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-brand-100 focus:border-brand-400; }
+  .badge { @apply inline-flex items-center rounded-lg bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700; }
+}

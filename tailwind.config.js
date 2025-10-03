@@ -1,47 +1,39 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html','./src/**/*.{js,jsx,ts,tsx}'],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        // Brand palette — adjust here to change theme
-        brand: {
-          50:  '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4', // primary
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63',
-        },
-        accent: {
-          500: '#22c55e', // success green
-        },
-        surface: '#0b1220',    // deep navy background
-        panel: 'rgba(255,255,255,0.06)',
-        foreground: 'rgba(255,255,255,0.92)',
-        muted: 'rgba(255,255,255,0.70)'
-      },
-      boxShadow: {
-        glow: '0 10px 30px rgba(6,182,212,0.35)'
-      },
-      backdropBlur: {
-        xs: '2px'
+      fontFamily: {
+        display: ["Inter", "system-ui", "Avenir", "Helvetica", "Arial", "sans-serif"],
       },
       borderRadius: {
-        xl2: '1rem'
+        xl: "1rem",
+        "2xl": "1.25rem",
       },
-      backgroundImage: {
-        'hero-gradient': 'radial-gradient(ellipse at top, rgba(6,182,212,0.25), transparent 55%), radial-gradient(ellipse at bottom, rgba(255,255,255,0.06), transparent 55%)',
-        'grid': 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)'
+      boxShadow: {
+        soft: "0 8px 30px rgba(0,0,0,0.06)",
       },
-      backgroundSize: {
-        grid: '24px 24px'
-      }
-    }
+      colors: {
+        brand: {
+          50: "#f2fbf7",
+          100: "#d6f6e7",
+          200: "#b0ecd2",
+          300: "#7bdcb8",
+          400: "#43c99b",
+          500: "#17b07f",
+          600: "#0c9068",
+          700: "#097456",
+          800: "#075c46",
+          900: "#044a39",
+        },
+      },
+    },
   },
-  plugins: []
-}
+  plugins: [],
+  safelist: [
+    // keep these from being purged if used conditionally
+    "bg-white","bg-slate-50","bg-slate-100","bg-slate-900",
+    "text-slate-900","text-white",
+    "bg-emerald-500","bg-rose-500","bg-yellow-500","bg-blue-600"
+  ],
+};
